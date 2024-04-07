@@ -41,7 +41,7 @@ You can choose one in these two options
 
 ## Better history searching, listfile, etc
 
-- Follow this [product](https://github.com/junegunn/fzf) on github, it's really good for you terminal usage.
+- Follow the [fzf](https://github.com/junegunn/fzf) on github, it's really good for you terminal usage.
 
 ## Alias
 
