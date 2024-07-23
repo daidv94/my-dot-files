@@ -19,14 +19,14 @@ In the end, you should have the follwing in the `.zshrc` file
 
 ```bash
 plugins=(
-git
-oc
-helm
-git-prompt
-kubectl
-aws
-zsh-syntax-highlighting
-zsh-autosuggestions
+  git
+  oc
+  helm
+  git-prompt
+  kubectl
+  aws
+  zsh-syntax-highlighting
+  zsh-autosuggestions
 )
 ```
 
@@ -62,15 +62,13 @@ alias gst='git status'
 alias gca='git commit --amend --no-edit'
 alias glg='git log --oneline --graph --decorate'
 alias gacapf='git add -u; git commit --amend --no-edit; git push -u --force-with-lease'
-alias gdmb='git branch -vv | grep "gone" | awk "{print $1}" | xargs git branch -D'
 alias grh='git reset --hard'
 alias grs='git reset --sort'
 alias tf='terraform'
 alias tg='terragrunt'
 alias golint='golangci-lint'
-alias cdpersonal='cd /Users/daidv/Documents/Personal/Projects'
 alias h='heroku'
-alias a='aliyun'
+alias a='aws'
 ```
 
 ## Utilities function on bash
