@@ -22,23 +22,20 @@ get_aft_session_token () {
 }
 
 plugins=(
-git
-oc
-helm
-git-prompt
-kubectl
-aws
-zsh-syntax-highlighting
-zsh-autosuggestions
+  git
+  oc
+  helm
+  git-prompt
+  kubectl
+  aws
+  zsh-syntax-highlighting
+  zsh-autosuggestions
 )
 
 autoload bashcompinit && bashcompinit
 source $(brew --prefix)/etc/bash_completion.d/az
 
 source $ZSH/oh-my-zsh.sh
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
 
 # Alias
 alias gfe='git fetch --prune'
@@ -59,9 +56,8 @@ alias grs='git reset --sort'
 alias tf='terraform'
 alias tg='terragrunt'
 alias golint='golangci-lint'
-alias cdwinbet='cd /Users/geotech/Documents/Personal/Projects/Winbets'
 alias h='heroku'
-alias a='aliyun'
+alias a='aws'
 
 /usr/bin/ssh-add -A > /dev/null 2>&1
 /usr/bin/ssh-add /Users/geotech/.ssh/id_ed25519_personal > /dev/null 2>&1
