@@ -1,6 +1,9 @@
 export PATH=/usr/bin:/usr/local/bin:/bin:/sbin:$HOME/bin:/usr/local/go/bin:/opt/homebrew/bin:$HOME/neovim/bin:$PATH
 export ZSH="$HOME/.oh-my-zsh"
 
+# Terminal editor command
+export EDITOR="nvim"
+
 eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/half-life.omp.json)"
 
 plugins=(
@@ -12,7 +15,6 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
-
 
 source $ZSH/oh-my-zsh.sh
 
