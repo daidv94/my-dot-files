@@ -16,6 +16,11 @@ wezterm.on("gui-startup", function(cmd)
 	window:gui_window():maximize()
 end)
 
+-- Tab configuration
+config.use_fancy_tab_bar = false
+config.show_new_tab_button_in_tab_bar = false
+-- config.show_tab_index_in_tab_bar = false
+
 config.term = "xterm-256color"
 
 config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
@@ -70,35 +75,8 @@ config.window_background_image_hsb = {
 }
 -- End image background settings
 
-local direction_keys = {
-	h = "Left",
-	j = "Down",
-	k = "Up",
-	l = "Right",
-}
-
-local function split_nav(key)
-	return {
-		key = key,
-		mods = "CTRL",
-		action = wezterm.action_callback(function(win, pane)
-			if pane:get_user_vars().IS_NVIM == "true" then
-				-- pass the keys through to vim/nvim
-				win:perform_action({
-					SendKey = { key = key, mods = "CTRL" },
-				}, pane)
-			else
-				win:perform_action({ ActivatePaneDirection = direction_keys[key] }, pane)
-			end
-		end),
-	}
-end
-
 -- Keys
-config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
-	-- Double Ctrl-a to send Ctrl-a
-	{ key = "a", mods = "LEADER|CTRL", action = action.SendKey({ key = "a", mods = "CTRL" }) },
 	-- Change the tab title name
 	{
 		key = "E",
@@ -128,73 +106,6 @@ config.keys = {
 			end
 		end),
 	},
-	-- splitting
-	{
-		mods = "LEADER",
-		key = "-",
-		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
-	},
-	{
-		mods = "LEADER",
-		key = "\\",
-		action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
-	},
-	-- move between split panes
-	split_nav("h"),
-	split_nav("j"),
-	split_nav("k"),
-	split_nav("l"),
-	-- Adjust the panel size
-	{
-		key = "h",
-		mods = "CTRL|SHIFT",
-		action = action.AdjustPaneSize({ "Left", 5 }),
-	},
-	{
-		key = "l",
-		mods = "CTRL|SHIFT",
-		action = action.AdjustPaneSize({ "Right", 5 }),
-	},
-	{
-		key = "j",
-		mods = "CTRL|SHIFT",
-		action = action.AdjustPaneSize({ "Down", 5 }),
-	},
-	{
-		key = "k",
-		mods = "CTRL|SHIFT",
-		action = action.AdjustPaneSize({ "Up", 5 }),
-	},
-	{
-		key = "m",
-		mods = "LEADER",
-		action = action.TogglePaneZoomState,
-	},
-	{
-		key = "c",
-		mods = "LEADER",
-		action = action.SpawnTab("CurrentPaneDomain"),
-	},
-
-	{
-		key = "p",
-		mods = "LEADER",
-		action = action.ActivateTabRelative(-1),
-	},
-	{
-		key = "n",
-		mods = "LEADER",
-		action = action.ActivateTabRelative(1),
-	},
-	{ key = "x", mods = "LEADER", action = action.CloseCurrentPane({ confirm = true }) },
 }
-
-for i = 1, 9 do
-	table.insert(config.keys, {
-		key = tostring(i),
-		mods = "LEADER",
-		action = action.ActivateTab(i - 1),
-	})
-end
 
 return config
