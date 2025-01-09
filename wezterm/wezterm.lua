@@ -22,6 +22,7 @@ config.show_new_tab_button_in_tab_bar = false
 -- config.show_tab_index_in_tab_bar = false
 
 config.term = "xterm-256color"
+config.max_fps = 200
 
 config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
 config.font_size = 15
