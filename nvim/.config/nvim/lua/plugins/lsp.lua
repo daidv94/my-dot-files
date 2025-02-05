@@ -64,6 +64,20 @@ return {
             },
           })
         end,
+        ["harper_ls"] = function()
+          local lspconfig = require("lspconfig")
+          lspconfig.harper_ls.setup({
+            settings = {
+              ["harper-ls"] = {
+                userDictPath = "~/dict.txt",
+                fileDictPath = "~/.harper/",
+                markdown = {
+                  ignore_link_title = true,
+                },
+              },
+            },
+          })
+        end,
       },
     })
     vim.diagnostic.config({
