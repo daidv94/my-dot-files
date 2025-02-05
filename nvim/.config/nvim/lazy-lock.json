@@ -5,19 +5,19 @@
   },
   "blink.cmp": {
     "branch": "main",
-    "commit": "1cc3b1a908fbcfd15451c4772759549724f38524"
+    "commit": "b6f11a0aa33e601c469a126e3ed6e35208fe3ea3"
   },
   "catppuccin": {
     "branch": "main",
-    "commit": "f67b886d65a029f12ffa298701fb8f1efd89295d"
+    "commit": "4965db2d6155c25db4e8417465fc2703fdf4c2b7"
   },
   "cellular-automaton.nvim": {
     "branch": "main",
-    "commit": "11aea08aa084f9d523b0142c2cd9441b8ede09ed"
+    "commit": "1606e9d5d04ff254023c3f3c62842d065708d6d3"
   },
   "conform.nvim": {
     "branch": "master",
-    "commit": "70019124aa4f2e6838be9fbd2007f6d13b27a96d"
+    "commit": "363243c03102a531a8203311d4f2ae704c620d9b"
   },
   "friendly-snippets": {
     "branch": "main",
@@ -37,7 +37,7 @@
   },
   "lazy.nvim": {
     "branch": "main",
-    "commit": "d8f26efd456190241afd1b0f5235fe6fdba13d4a"
+    "commit": "7527af40ddd4a93a02911be570b32609b9d4ea53"
   },
   "lspkind.nvim": {
     "branch": "master",
@@ -53,7 +53,7 @@
   },
   "mason-lspconfig.nvim": {
     "branch": "main",
-    "commit": "e942edf5c85b6a2ab74059ea566cac5b3e1514a4"
+    "commit": "f75e877f5266e87523eb5a18fcde2081820d087b"
   },
   "mason.nvim": {
     "branch": "main",
@@ -65,23 +65,23 @@
   },
   "nvim-lspconfig": {
     "branch": "master",
-    "commit": "339ccc81e08793c3af9b83882a6ebd90c9cc0d3b"
+    "commit": "66bc018936c6ff76beb75f89d986af6442db4001"
   },
   "nvim-surround": {
     "branch": "main",
-    "commit": "9f0cb495f25bff32c936062d85046fbda0c43517"
+    "commit": "ae298105122c87bbe0a36b1ad20b06d417c0433e"
   },
   "nvim-treesitter": {
     "branch": "master",
-    "commit": "a67a312e7b08cbf2895d8f29a4b1f38f18d9a8e8"
+    "commit": "55ae57419504432ba9c229ea9b03bad621ab9ef7"
   },
   "nvim-web-devicons": {
     "branch": "master",
-    "commit": "aafa5c187a15701a7299a392b907ec15d9a7075f"
+    "commit": "402377242b04be3f4f0f3720bd952df86e946c30"
   },
   "oil.nvim": {
     "branch": "master",
-    "commit": "09fa1d22f5edf0730824d2b222d726c8c81bbdc9"
+    "commit": "add50252b5e9147c0a09d36480d418c7e2737472"
   },
   "plenary": {
     "branch": "master",
