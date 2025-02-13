@@ -58,6 +58,8 @@ vim.keymap.set("n", "<leader>qr", [[:cfdo %s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><
 vim.keymap.set("n", "<leader>m", ":MarkdownPreviewToggle<CR>")
 
 -- Copy current buffer path
-vim.keymap.set("n", "<leader>cf", ':let @+ = expand("%:p")<CR>', { desc = "Copy file path" })
+vim.keymap.set("n", "<leader>cf", ':let @+ = expand("%:p")<CR>', { desc = "Copy absolute file path" })
 -- Copy current buffer parent directory
-vim.keymap.set("n", "<leader>cd", ':let @+ = expand("%:p:h")<CR>', { desc = "Copy directory path" })
+vim.keymap.set("n", "<leader>cd", ':let @+ = expand("%:p:h")<CR>', { desc = "Copy absolute directory path" })
+-- Copy current relative buffer parent directory
+vim.keymap.set("n", "<leader>cr", ':let @+ = expand("%:h")<CR>', { desc = "Copy relative directory path" })
