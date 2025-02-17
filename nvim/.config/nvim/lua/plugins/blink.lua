@@ -1,10 +1,12 @@
+-- Refer https://github.com/ThorstenRhau/neovim/blob/main/lua/optional/blink-cmp.lua
 return {
   "saghen/blink.cmp",
   dependencies = {
     "rafamadriz/friendly-snippets",
-    "onsails/lspkind.nvim",
+    "xzbdmw/colorful-menu.nvim",
   },
   version = "*",
+  event = { "InsertEnter", "CmdlineEnter" },
   opts = {
 
     appearance = {
@@ -32,41 +34,19 @@ return {
       menu = {
         border = "rounded",
 
-        cmdline_position = function()
-          if vim.g.ui_cmdline_pos ~= nil then
-            local pos = vim.g.ui_cmdline_pos -- (1, 0)-indexed
-            return { pos[1] - 1, pos[2] }
-          end
-          local height = (vim.o.cmdheight == 0) and 1 or vim.o.cmdheight
-          return { vim.o.lines - height, 0 }
-        end,
-
         draw = {
-          columns = {
-            { "kind_icon", "label", gap = 1 },
-            { "kind" },
-          },
+          columns = { { "kind_icon" }, { "label", gap = 1 } },
           components = {
-            kind_icon = {
-              text = function(item)
-                local kind = require("lspkind").symbol_map[item.kind] or ""
-                return kind .. " "
-              end,
-              highlight = "CmpItemKind",
-            },
             label = {
-              text = function(item)
-                return item.label
+              text = function(ctx)
+                return require("colorful-menu").blink_components_text(ctx)
               end,
-              highlight = "CmpItemAbbr",
-            },
-            kind = {
-              text = function(item)
-                return item.kind
+              highlight = function(ctx)
+                return require("colorful-menu").blink_components_highlight(ctx)
               end,
-              highlight = "CmpItemKind",
             },
           },
+          treesitter = { "lsp" },
         },
       },
     },
@@ -110,7 +90,7 @@ return {
       providers = {
         lsp = {
           min_keyword_length = 2, -- Number of characters to trigger provider
-          score_offset = 0,       -- Boost/penalize the score of the items
+          score_offset = 0, -- Boost/penalize the score of the items
         },
         path = {
           min_keyword_length = 1,
