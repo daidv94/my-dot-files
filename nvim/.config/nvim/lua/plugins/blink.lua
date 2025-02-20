@@ -2,7 +2,6 @@
 return {
   "saghen/blink.cmp",
   dependencies = {
-    "rafamadriz/friendly-snippets",
     "xzbdmw/colorful-menu.nvim",
   },
   version = "*",
@@ -46,7 +45,6 @@ return {
               end,
             },
           },
-          treesitter = { "lsp" },
         },
       },
     },
