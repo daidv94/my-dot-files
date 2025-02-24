@@ -2,6 +2,7 @@ export PATH=/usr/bin:/usr/local/bin:/bin:/sbin:$HOME/bin:/usr/local/go/bin:/opt/
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:$HOME/.lmstudio/bin"
+export PATH="$PATH:$HOME/google-cloud-sdk/bin"
 export ZSH="$HOME/.oh-my-zsh"
 
 # Terminal editor command
@@ -104,6 +105,7 @@ alias dc='docker-compose'
 alias b='bat'
 alias cat='bat'
 alias le="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+alias gc="gcloud"
 
 /usr/bin/ssh-add -A > /dev/null 2>&1
 /usr/bin/ssh-add /Users/danny/.ssh/id_personal > /dev/null 2>&1
@@ -133,3 +135,9 @@ export NVM_DIR="$HOME/.nvm"
 
 
 eval "$(zoxide init zsh)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/danny/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/danny/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/danny/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/danny/google-cloud-sdk/completion.zsh.inc'; fi
