@@ -32,6 +32,12 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set(
+  { "v" },
+  "<leader>r",
+  '"hy:%s/<C-r>h/<C-r>h/gc<left><left><left>',
+  { desc = "Open search and replace for currently selected text" }
+)
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>eh", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
@@ -63,3 +69,10 @@ vim.keymap.set("n", "<leader>cf", ':let @+ = expand("%:p")<CR>', { desc = "Copy 
 vim.keymap.set("n", "<leader>cd", ':let @+ = expand("%:p:h")<CR>', { desc = "Copy absolute directory path" })
 -- Copy current relative buffer parent directory
 vim.keymap.set("n", "<leader>cr", ':let @+ = expand("%:h")<CR>', { desc = "Copy relative directory path" })
+
+vim.keymap.set(
+  "i",
+  "<C-z>",
+  "<C-g>u<Esc>[s1z=`]a<C-g>u",
+  { noremap = true, desc = "Fix last spelling mistake in insert mode" }
+)
