@@ -13,9 +13,14 @@ return {
       nerd_font_variant = "mono",
     },
 
+    cmdline = {
+      keymap = {
+        ["<Tab>"] = { "show", "accept" },
+      },
+      completion = { menu = { auto_show = true } },
+    },
     completion = {
       accept = { auto_brackets = { enabled = true } },
-
       documentation = {
         auto_show = true,
         auto_show_delay_ms = 250,
@@ -84,7 +89,7 @@ return {
     },
 
     sources = {
-      default = { "lsp", "path", "snippets", "buffer" },
+      -- default = { "lsp", "path", "snippets", "buffer" },
       providers = {
         lsp = {
           min_keyword_length = 1, -- Number of characters to trigger provider
