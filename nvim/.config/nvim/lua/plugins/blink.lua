@@ -17,7 +17,7 @@ return {
       keymap = {
         ["<Tab>"] = { "show", "accept" },
       },
-      completion = { menu = { auto_show = true } },
+      completion = { menu = { auto_show = false } },
     },
     completion = {
       accept = { auto_brackets = { enabled = true } },
@@ -93,7 +93,7 @@ return {
       providers = {
         lsp = {
           min_keyword_length = 1, -- Number of characters to trigger provider
-          score_offset = 0, -- Boost/penalize the score of the items
+          score_offset = 0,       -- Boost/penalize the score of the items
         },
         path = {
           min_keyword_length = 1,

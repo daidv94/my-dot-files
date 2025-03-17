@@ -29,7 +29,7 @@ local live_multigrep = function(opts)
 
       return vim.tbl_flatten({
         args,
-        { "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" },
+        { "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case", "--hidden", "--glob", "!.git/*" },
       })
     end,
     entry_maker = make_entry.gen_from_vimgrep(opts),
@@ -37,14 +37,14 @@ local live_multigrep = function(opts)
   })
 
   pickers
-    .new(opts, {
-      debounce = 100,
-      prompt_title = "Multi Grep",
-      finder = finder,
-      previewer = conf.grep_previewer(opts),
-      sorter = require("telescope.sorters").empty(),
-    })
-    :find()
+      .new(opts, {
+        debounce = 100,
+        prompt_title = "Multi Grep",
+        finder = finder,
+        previewer = conf.grep_previewer(opts),
+        sorter = require("telescope.sorters").empty(),
+      })
+      :find()
 end
 
 M.setup = function()
