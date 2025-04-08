@@ -2,6 +2,7 @@ return {
   "lewis6991/gitsigns.nvim",
   version = "*",
   lazy = false,
+  dependencies = { "sindrets/diffview.nvim" },
   config = function()
     require("gitsigns").setup()
     local gitsigns = require("gitsigns")
@@ -39,5 +40,13 @@ return {
     vim.keymap.set("n", "<leader>gD", function()
       gitsigns.diffthis("~")
     end)
+    -- Diffview
+    vim.keymap.set("n", "<leader>gv", function()
+      if next(require("diffview.lib").views) == nil then
+        vim.cmd("DiffviewOpen")
+      else
+        vim.cmd("DiffviewClose")
+      end
+    end, { desc = "Toggle Diffview" })
   end,
 }
