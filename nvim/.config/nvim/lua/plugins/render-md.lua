@@ -1,10 +1,10 @@
 return {
   "MeanderingProgrammer/render-markdown.nvim",
-  opts = {},
   dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-  config = function()
-    require("render-markdown").setup({
-      completions = { blink = { enabled = true } },
-    })
-  end,
+  opts = {
+    completions = {
+      -- Settings for blink.cmp completions source
+      blink = { enabled = true },
+    },
+  },
 }
