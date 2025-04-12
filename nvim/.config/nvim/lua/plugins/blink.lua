@@ -91,10 +91,13 @@ return {
 
     sources = {
       -- default = { "lsp", "path", "snippets", "buffer", "render-markdown" },
+      per_filetype = {
+        sql = { "snippets", "dadbod", "buffer" },
+      },
       providers = {
         lsp = {
           min_keyword_length = 1, -- Number of characters to trigger provider
-          score_offset = 0,       -- Boost/penalize the score of the items
+          score_offset = 0, -- Boost/penalize the score of the items
         },
         path = {
           min_keyword_length = 1,
@@ -106,6 +109,7 @@ return {
           min_keyword_length = 2,
           max_items = 10,
         },
+        dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
       },
     },
   },

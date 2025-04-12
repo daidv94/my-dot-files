@@ -4,8 +4,8 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.showmode = false
 
 vim.o.foldenable = false
-vim.o.foldmethod = 'expr'
-vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.o.foldlevelstart = 99
 vim.o.mouse = "a"
 
@@ -45,14 +45,11 @@ vim.opt.updatetime = 50
 
 -- vim.opt.colorcolumn = "150"
 
--- optionally enable 24-bit colour
-vim.opt.termguicolors = true
-
 -- vim.opt.iskeyword:append({ "-" })
 
 -- filetype ---
 vim.filetype.add({
   extension = {
-    tf = "terraform"
-  }
+    tf = "terraform",
+  },
 })
