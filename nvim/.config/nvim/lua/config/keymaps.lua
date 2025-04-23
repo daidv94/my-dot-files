@@ -29,6 +29,7 @@ vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])
 vim.keymap.set("x", "P", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set("n", "ycc", '"yy" . v:count1 . "gcc\']p"', { remap = true, expr = true })
 -- vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
@@ -71,9 +72,4 @@ vim.keymap.set("n", "<leader>cd", ':let @+ = expand("%:p:h")<CR>', { desc = "Cop
 -- Copy current relative buffer parent directory
 vim.keymap.set("n", "<leader>cr", ':let @+ = expand("%:h")<CR>', { desc = "Copy relative directory path" })
 
-vim.keymap.set(
-  "i",
-  "<C-z>",
-  "<C-g>u<Esc>[s1z=`]a<C-g>u",
-  { noremap = true, desc = "Fix last spelling mistake in insert mode" }
-)
+vim.keymap.set("x", "/", "<Esc>/\\%V") --search within visual selection
