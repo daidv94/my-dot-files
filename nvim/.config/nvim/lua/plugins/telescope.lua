@@ -38,8 +38,9 @@ return {
     vim.keymap.set("n", "<leader>sl", builtin.live_grep, {})
     vim.keymap.set("n", "<leader>sh", builtin.help_tags, {})
     vim.keymap.set("n", "<leader>sm", builtin.marks, {})
-    vim.keymap.set("n", "<leader>sp", builtin.oldfiles, {})
+    -- vim.keymap.set("n", "<leader>sp", builtin.oldfiles, {})
     vim.keymap.set("n", "<leader>sq", builtin.quickfix, {})
+    vim.keymap.set("n", "<leader>sb", builtin.buffers, {})
 
     -- Custom live grep, can be passed arguments into it
     require("config.telescope.multigrep").setup()

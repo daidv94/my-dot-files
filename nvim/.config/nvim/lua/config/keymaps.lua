@@ -12,7 +12,8 @@ vim.keymap.set("n", "Q", "<nop>")
 -- vim.keymap.set("i", "<C-k>", "<Up>", { desc = "move up" })
 vim.keymap.set("i", "jj", "<Esc>")
 
--- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- Switch to last opened buffer
+vim.keymap.set("n", "<leader><leader>", "<C-^>", { noremap = true, silent = true })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
