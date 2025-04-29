@@ -3,6 +3,7 @@ export PATH=/usr/bin:/usr/local/bin:/bin:/sbin:$HOME/bin:/usr/local/go/bin:/opt/
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:$HOME/.lmstudio/bin"
 export PATH="$PATH:$HOME/google-cloud-sdk/bin"
+export PATH="$PATH:/Library/TeX/texbin"
 export ZSH="$HOME/.oh-my-zsh"
 
 # Terminal editor command
