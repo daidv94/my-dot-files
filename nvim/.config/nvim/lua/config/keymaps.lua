@@ -53,7 +53,11 @@ vim.keymap.set("n", "<C-l>", ":wincmd l<CR>")
 vim.keymap.set("n", "<leader>o", ":normal o<CR>")
 vim.keymap.set("n", "<leader>O", ":normal O<CR>")
 
-vim.keymap.set("v", "y", "y']")
+-- Jump cursor to the end of visual selection after yanking
+vim.keymap.set("x", "y", "ygv<esc>", { desc = "Yank selection" })
+
+-- Remap ` to ' in normal mode, mostly use to jump to exact mark position
+vim.keymap.set("n", "'", "`", { noremap = true, desc = "Remap ` to ' in normal mode" })
 
 -- Quickfix list keymap
 vim.keymap.set("n", "<leader>qo", ":copen<CR>")

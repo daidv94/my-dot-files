@@ -14,7 +14,7 @@ nvim
 
 ## TODO
 
-### Upgrade to nvim 0.11
+### Upgrade to nvim 0.11: [Refer](https://chatgpt.com/share/683e8228-eddc-800a-8287-f330ea92eddc)
 
 Update the lsp.lua by following
 
