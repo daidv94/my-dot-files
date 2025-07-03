@@ -2,6 +2,7 @@ return {
   "lewis6991/gitsigns.nvim",
   version = "*",
   lazy = false,
+  -- adf
   dependencies = { "sindrets/diffview.nvim" },
   config = function()
     require("gitsigns").setup()
