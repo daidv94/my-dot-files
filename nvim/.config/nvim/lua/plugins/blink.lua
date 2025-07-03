@@ -74,20 +74,20 @@ return {
         ["<C-e>"] = { "hide", "fallback" },
         ["<CR>"] = { "accept", "fallback" },
 
-        ["<Tab>"] = {
-          function(cmp)
-            return cmp.select_next()
-          end,
-          "snippet_forward",
-          "fallback",
-        },
-        ["<S-Tab>"] = {
-          function(cmp)
-            return cmp.select_prev()
-          end,
-          "snippet_backward",
-          "fallback",
-        },
+        -- ["<Tab>"] = {
+        --   function(cmp)
+        --     return cmp.select_next()
+        --   end,
+        --   "snippet_forward",
+        --   "fallback",
+        -- },
+        -- ["<S-Tab>"] = {
+        --   function(cmp)
+        --     return cmp.select_prev()
+        --   end,
+        --   "snippet_backward",
+        --   "fallback",
+        -- },
 
         ["<Up>"] = { "select_prev", "fallback" },
         ["<Down>"] = { "select_next", "fallback" },
@@ -111,7 +111,7 @@ return {
         providers = {
           lsp = {
             min_keyword_length = 1, -- Number of characters to trigger provider
-            score_offset = 0, -- Boost/penalize the score of the items
+            score_offset = 0,       -- Boost/penalize the score of the items
           },
           path = {
             min_keyword_length = 1,
