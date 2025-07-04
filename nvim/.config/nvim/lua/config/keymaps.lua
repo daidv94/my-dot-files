@@ -79,3 +79,5 @@ vim.keymap.set("n", "<leader>cd", ':let @+ = expand("%:p:h")<CR>', { desc = "Cop
 vim.keymap.set("n", "<leader>cr", ':let @+ = expand("%:h")<CR>', { desc = "Copy relative directory path" })
 
 vim.keymap.set("x", "/", "<Esc>/\\%V") --search within visual selection
+
+vim.keymap.set('n', '<leader>ca', '<cmd>ClaudeCode<CR>', { desc = 'Toggle Claude Code' })

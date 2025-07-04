@@ -5,6 +5,7 @@ return {
 
   dependencies = {
     "nvim-lua/plenary.nvim",
+    "nvim-telescope/telescope-ui-select.nvim"
   },
 
   config = function()
@@ -21,6 +22,13 @@ return {
           "--hidden",
           "--glob",
           "!.git/*",
+        },
+      },
+      extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown({
+            -- even more opts
+          }),
         },
       },
     })
@@ -44,5 +52,6 @@ return {
 
     -- Custom live grep, can be passed arguments into it
     require("config.telescope.multigrep").setup()
+    require("telescope").load_extension("ui-select")
   end,
 }
