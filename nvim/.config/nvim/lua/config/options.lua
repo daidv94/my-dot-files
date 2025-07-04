@@ -1,4 +1,4 @@
-vim.opt.completeopt = "menu,menuone,noselect,noinsert,popup"
+-- vim.opt.completeopt = "menu,menuone,noselect,noinsert,popup"
 
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }

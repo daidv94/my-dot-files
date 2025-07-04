@@ -18,6 +18,7 @@ return {
       { "xzbdmw/colorful-menu.nvim" },
       { "rafamadriz/friendly-snippets" },
       { "micangl/cmp-vimtex" },
+      { "giuxtaposition/blink-cmp-copilot" },
     },
     lazy = false,
     version = "*",
@@ -74,20 +75,20 @@ return {
         ["<C-e>"] = { "hide", "fallback" },
         ["<CR>"] = { "accept", "fallback" },
 
-        -- ["<Tab>"] = {
-        --   function(cmp)
-        --     return cmp.select_next()
-        --   end,
-        --   "snippet_forward",
-        --   "fallback",
-        -- },
-        -- ["<S-Tab>"] = {
-        --   function(cmp)
-        --     return cmp.select_prev()
-        --   end,
-        --   "snippet_backward",
-        --   "fallback",
-        -- },
+        ["<Tab>"] = {
+          function(cmp)
+            return cmp.select_next()
+          end,
+          "snippet_forward",
+          "fallback",
+        },
+        ["<S-Tab>"] = {
+          function(cmp)
+            return cmp.select_prev()
+          end,
+          "snippet_backward",
+          "fallback",
+        },
 
         ["<Up>"] = { "select_prev", "fallback" },
         ["<Down>"] = { "select_next", "fallback" },
@@ -104,7 +105,7 @@ return {
       },
 
       sources = {
-        default = { "lsp", "path", "snippets", "buffer", "cmdline", "vimtex" },
+        default = { "lsp", "path", "snippets", "buffer", "cmdline", "vimtex", "copilot" },
         per_filetype = {
           sql = { "snippets", "dadbod", "buffer" },
         },
@@ -112,6 +113,13 @@ return {
           lsp = {
             min_keyword_length = 1, -- Number of characters to trigger provider
             score_offset = 0,       -- Boost/penalize the score of the items
+          },
+          copilot = {
+            name = "copilot",
+            module = "blink-cmp-copilot",
+            score_offset = 100,
+            async = true,
+            score_offset = -1000, -- Copilot items are always at the end
           },
           path = {
             min_keyword_length = 1,
