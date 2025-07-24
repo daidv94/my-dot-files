@@ -1,3 +1,4 @@
+-- Refer https://www.dmsussman.org/resources/vimandlatex/#guides
 return {
   {
     "lervag/vimtex",
