@@ -112,14 +112,13 @@ return {
         providers = {
           lsp = {
             min_keyword_length = 1, -- Number of characters to trigger provider
-            score_offset = 0,       -- Boost/penalize the score of the items
+            score_offset = 0, -- Boost/penalize the score of the items
           },
           copilot = {
             name = "copilot",
             module = "blink-cmp-copilot",
-            score_offset = 100,
+            score_offset = 1,
             async = true,
-            score_offset = -1000, -- Copilot items are always at the end
           },
           path = {
             min_keyword_length = 1,

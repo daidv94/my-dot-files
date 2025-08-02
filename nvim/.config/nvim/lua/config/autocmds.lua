@@ -68,5 +68,8 @@ autocmd("LspAttach", {
     vim.keymap.set("n", "]d", function()
       vim.diagnostic.goto_prev()
     end, opts)
+    vim.keymap.set("n", "<leader>ld", function()
+      vim.diagnostic.open_float(nil, { border = "rounded" })
+    end, { desc = "Show line diagnostic" })
   end,
 })

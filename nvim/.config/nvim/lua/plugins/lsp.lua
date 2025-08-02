@@ -3,11 +3,11 @@ return {
   dependencies = {
     {
       "mason-org/mason.nvim",
-      version = "^1.0.0",
+      version = "*",
     },
     {
       "mason-org/mason-lspconfig.nvim",
-      version = "^1.0.0",
+      version = "*",
     },
   },
 
