@@ -8,7 +8,7 @@ return {
         flavour = "auto",
         transparent_background = true,
       })
-      vim.cmd.colorscheme("catppuccin-mocha")
+      vim.cmd.colorscheme("catppuccin-macchiato")
 
       -- transparent background
       vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
