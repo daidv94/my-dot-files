@@ -9,7 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Terminal editor command
 export EDITOR="nvim"
 
-eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/catppuccin_mocha.omp.json)"
+eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/half-life.omp.json)"
 
 plugins=(
   git
