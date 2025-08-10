@@ -63,14 +63,11 @@ return {
             ["al"] = { query = "@loop.outer", desc = "Select outer part of a loop" },
             ["il"] = { query = "@loop.inner", desc = "Select outer part of a loop" },
 
-            ["iq"] = "@string.inner",
-            ["aq"] = "@string.outer",
-
             ["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
           },
           selection_modes = {
             ["@parameter.outer"] = "v", -- charwise
-            ["@function.outer"] = "V",  -- linewise
+            ["@function.outer"] = "V", -- linewise
             ["@class.outer"] = "<c-v>", -- blockwise
           },
           -- If you set this to `true` (default is `false`) then any textobject is

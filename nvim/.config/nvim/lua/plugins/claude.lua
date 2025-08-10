@@ -8,7 +8,7 @@ return {
       window = {
         position = "vertical",
         split_ratio = 0.5,
-      }
+      },
     })
-  end
+  end,
 }
