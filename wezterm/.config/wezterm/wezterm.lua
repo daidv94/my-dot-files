@@ -25,7 +25,7 @@ config.term = "xterm-256color"
 config.max_fps = 200
 
 config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
-config.font_size = 15
+config.font_size = 16
 config.window_frame = {
   font_size = 14.0,
 }

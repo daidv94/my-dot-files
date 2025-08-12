@@ -108,11 +108,12 @@ return {
         default = { "lsp", "path", "snippets", "buffer", "cmdline", "vimtex", "copilot" },
         per_filetype = {
           sql = { "snippets", "dadbod", "buffer" },
+          tex = { "snippets", "vimtex" },
         },
         providers = {
           lsp = {
             min_keyword_length = 1, -- Number of characters to trigger provider
-            score_offset = 0, -- Boost/penalize the score of the items
+            score_offset = 0,       -- Boost/penalize the score of the items
           },
           copilot = {
             name = "copilot",
