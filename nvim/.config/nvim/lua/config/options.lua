@@ -53,5 +53,11 @@ vim.opt.updatetime = 50
 vim.filetype.add({
   extension = {
     tf = "terraform",
+    gotmpl = 'gotmpl',
+  },
+  pattern = {
+    [".*/templates/.*%.tpl"] = "helm",
+    [".*/templates/.*%.ya?ml"] = "helm",
+    ["helmfile.*%.ya?ml"] = "helm",
   },
 })

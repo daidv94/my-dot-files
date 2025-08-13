@@ -19,9 +19,11 @@ return {
         "jsonnet",
         "bash",
         "go",
+        "gotmpl",
         "yaml",
         "json",
         "python",
+        "helm",
         "hcl",
         "terraform",
         "dockerfile",
@@ -67,7 +69,7 @@ return {
           },
           selection_modes = {
             ["@parameter.outer"] = "v", -- charwise
-            ["@function.outer"] = "V", -- linewise
+            ["@function.outer"] = "V",  -- linewise
             ["@class.outer"] = "<c-v>", -- blockwise
           },
           -- If you set this to `true` (default is `false`) then any textobject is
