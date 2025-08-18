@@ -3,7 +3,7 @@ return {
   build = ":TSUpdate",
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    -- "nvim-treesitter/nvim-treesitter-context", # Enable if I become a software engineer
+    "nvim-treesitter/nvim-treesitter-context",
   },
   config = function()
     require("nvim-treesitter.configs").setup({
