@@ -5,6 +5,8 @@ export PATH="$PATH:$HOME/.lmstudio/bin"
 export PATH="$PATH:$HOME/google-cloud-sdk/bin"
 export PATH="$PATH:/Library/TeX/texbin"
 export ZSH="$HOME/.oh-my-zsh"
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
 
 # Terminal editor command
 export EDITOR="nvim"
