@@ -127,6 +127,18 @@ get_aft_session_token () {
     export AWS_SECRET_ACCESS_KEY=$(echo ${JSON} | jq --raw-output ".Credentials[\"SecretAccessKey\"]")
     export AWS_SESSION_TOKEN=$(echo ${JSON} | jq --raw-output ".Credentials[\"SessionToken\"]")
 }
+
+# Remove quarantine attribute from a binary
+unquarantine() {
+  if [ -z "$1" ]; then
+    echo "Usage: unquarantine $1"
+    return 1
+  fi
+
+  xattr -d com.apple.quarantine "$1"
+  echo "Removed quarantine from $1"
+}
+
 # Integrate fzf with git
 # source ~/fzf-git.sh/fzf-git.sh
 
