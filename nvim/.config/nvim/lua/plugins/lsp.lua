@@ -47,13 +47,36 @@ return {
         gopls = function()
           local lspconfig = require("lspconfig")
           lspconfig.gopls.setup({
+            capabilities = capabilities,
             root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
             settings = {
               gopls = {
                 completeUnimported = true,
                 usePlaceholders = true,
+                gofumpt = true,
+                analyses = {
+                  unusedparams = true,
+                  shadow = true,
+                },
+                staticcheck = true,
+                codelenses = {
+                  gc_details = false,
+                  generate = true,
+                  regenerate_cgo = true,
+                  run_govulncheck = true,
+                  test = true,
+                  tidy = true,
+                  upgrade_dependency = true,
+                  vendor = true,
+                },
               },
             },
+            on_attach = function(client, bufnr)
+              local opts = { noremap = true, silent = true, buffer = bufnr }
+              vim.keymap.set("n", "<leader>go", function()
+                vim.lsp.buf.code_action({ context = { only = { "source.organizeImports" } } })
+              end, { desc = "Organize Go imports", unpack(opts) })
+            end,
           })
         end,
         ["lua_ls"] = function()
