@@ -58,7 +58,7 @@ return {
                   unusedparams = true,
                   shadow = true,
                 },
-                staticcheck = true,
+                -- staticcheck = true,
                 codelenses = {
                   gc_details = false,
                   generate = true,
@@ -88,20 +88,6 @@ return {
                 runtime = { version = "LuaJIT" },
                 diagnostics = {
                   globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
-                },
-              },
-            },
-          })
-        end,
-        ["harper_ls"] = function()
-          local lspconfig = require("lspconfig")
-          lspconfig.harper_ls.setup({
-            settings = {
-              ["harper-ls"] = {
-                userDictPath = "~/dict.txt",
-                fileDictPath = "~/.harper/",
-                markdown = {
-                  ignore_link_title = true,
                 },
               },
             },

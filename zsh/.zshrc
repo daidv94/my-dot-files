@@ -7,6 +7,7 @@ export PATH="$PATH:/Library/TeX/texbin"
 export ZSH="$HOME/.oh-my-zsh"
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:/opt/homebrew/opt/mysql-client/bin"
 
 # Terminal editor command
 export EDITOR="nvim"
