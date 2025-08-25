@@ -42,7 +42,7 @@ vim.keymap.set(
 )
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
--- vim.keymap.set("n", "<leader>eh", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
+vim.keymap.set("n", "<leader>eh", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
 
 vim.keymap.set("n", "<C-h>", ":wincmd h<CR>")
 vim.keymap.set("n", "<C-j>", ":wincmd j<CR>")
@@ -79,4 +79,4 @@ vim.keymap.set("n", "<leader>cr", ':let @+ = expand("%:h")<CR>', { desc = "Copy 
 
 vim.keymap.set("x", "/", "<Esc>/\\%V") --search within visual selection
 
-vim.keymap.set('n', '<leader>ca', '<cmd>ClaudeCode<CR>', { desc = 'Toggle Claude Code' })
+vim.keymap.set("n", "<leader>ca", "<cmd>ClaudeCode<CR>", { desc = "Toggle Claude Code" })
