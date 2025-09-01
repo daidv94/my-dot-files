@@ -50,6 +50,15 @@ return {
         additional_vim_regex_highlighting = false,
       },
       textobjects = {
+        swap = {
+          enable = true,
+          swap_next = {
+            ["<leader>sa"] = "@parameter.inner",
+          },
+          swap_previous = {
+            ["<leader>sA"] = "@parameter.inner",
+          },
+        },
         select = {
           enable = true,
 
@@ -64,12 +73,14 @@ return {
             ["ib"] = { query = "@block.inner", desc = "Select outer part of a codeblock" },
             ["al"] = { query = "@loop.outer", desc = "Select outer part of a loop" },
             ["il"] = { query = "@loop.inner", desc = "Select outer part of a loop" },
+            ["ia"] = { query = "@parameter.inner", desc = "Select inner part of a parameter" },
+            ["aa"] = { query = "@parameter.outer", desc = "Select outer part of a parameter" },
 
             ["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
           },
           selection_modes = {
             ["@parameter.outer"] = "v", -- charwise
-            ["@function.outer"] = "V",  -- linewise
+            ["@function.outer"] = "V", -- linewise
             ["@class.outer"] = "<c-v>", -- blockwise
           },
           -- If you set this to `true` (default is `false`) then any textobject is

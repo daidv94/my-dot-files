@@ -71,12 +71,6 @@ return {
                 },
               },
             },
-            on_attach = function(client, bufnr)
-              local opts = { noremap = true, silent = true, buffer = bufnr }
-              vim.keymap.set("n", "<leader>go", function()
-                vim.lsp.buf.code_action({ context = { only = { "source.organizeImports" } } })
-              end, { desc = "Organize Go imports", unpack(opts) })
-            end,
           })
         end,
         ["lua_ls"] = function()

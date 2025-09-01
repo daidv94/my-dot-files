@@ -16,6 +16,9 @@ return {
       view = {
         adaptive_size = true,
       },
+      update_focused_file = {
+        enable = true,
+      },
     })
     -- rollback oil keymap before enabling this again
     vim.keymap.set("n", "<leader>te", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
