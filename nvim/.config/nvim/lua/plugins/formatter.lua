@@ -1,6 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
+    version = "*",
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
     keys = {
@@ -26,18 +27,6 @@ return {
             lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
           }
         end,
-        -- formatters = {
-        --   yamlfix = {
-        --     command = "yamlfix",
-        --     env = {
-        --       YAMLFIX_SEQUENCE_STYLE = "block_style",
-        --       YAMLFIX_EXPLICIT_START = "false",
-        --       YAMLFIX_WHITELINES = "1",
-        --       YAMLFIX_quote_representation = '"',
-        --       YAMLFIX_preserve_quotes = "true"
-        --     }
-        --   }
-        -- },
         formatters_by_ft = {
           lua = { "stylua" },
           python = { "isort", "black" },
