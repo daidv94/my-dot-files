@@ -8,6 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:/opt/homebrew/opt/mysql-client/bin"
+export PATH="$PATH:$HOME/qmk_toolchains/bin"
 
 # Terminal editor command
 export EDITOR="nvim"
@@ -103,6 +104,8 @@ alias cd='z'
 alias h='heroku'
 alias a='aws'
 alias n='nvim'
+alias vim='nvim'
+alias vi='nvim'
 alias c='code'
 alias s='stern'
 alias dc='docker-compose'
