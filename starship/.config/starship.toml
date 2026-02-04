@@ -24,18 +24,13 @@ disabled = true
 [env_var]
 disabled = true
 
-[elixir]
-symbol = " "
-
-[elm]
-symbol = " "
-
 [git_branch]
-symbol = " "
+symbol = " "
 
 [git_commit]
 disabled = false
 commit_hash_length = 4
+tag_symbol = '  '
 
 [git_state]
 disabled = true
@@ -56,7 +51,7 @@ deleted = "✘${count}"
 disabled = true
 
 [golang]
-symbol = " "
+symbol = " "
 
 [hostname]
 
@@ -80,33 +75,18 @@ disabled = true
 [memory_usage]
 disabled = true
 
-[java]
-symbol = " "
-
 [julia]
 
 [nim]
 
 [nodejs]
-symbol = " "
+symbol = " "
 
 [package]
-symbol = " "
-
-[php]
-symbol = " "
+symbol = "󰏗 "
 
 [python]
 symbol = " "
-
-[ruby]
-symbol = " "
-
-[rust]
-symbol = " "
-
-[scala]
-symbol = " "
 
 [terraform]
 symbol = " "
