@@ -16,3 +16,4 @@ My `dotfiles` are managed by this repository with the wonderful help of [stow](h
 - Need to use terminal emulator like `wezterm` or `iterm2`... to display theme correctly and even the image background
 - Use `Nerfont` for icon, text, folder,... I'm using `JetBrains Mono Nerd Font`
 - `ripgrep` installed
+- *Optional* Background image can be searched in this webpage [WallpaperHD](https://www.wallpaperflare.com/)
