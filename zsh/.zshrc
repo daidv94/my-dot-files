@@ -13,8 +13,6 @@ export PATH="$PATH:$HOME/qmk_toolchains/bin"
 # Terminal editor command
 export EDITOR="nvim"
 
-eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/half-life.omp.json)"
-
 plugins=(
   git
   helm
@@ -115,8 +113,6 @@ alias le="eza --color=always --long --git --no-filesize --icons=always --no-time
 alias gc="gcloud"
 
 /usr/bin/ssh-add -A > /dev/null 2>&1
-/usr/bin/ssh-add /Users/danny/.ssh/id_personal > /dev/null 2>&1
-/usr/bin/ssh-add /Users/danny/.ssh/id_riverr > /dev/null 2>&1
 
 # Useful function
 unset_aws_cred_env () {
@@ -160,3 +156,5 @@ if [ -f '/Users/danny/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/danny/goo
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/danny/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/danny/google-cloud-sdk/completion.zsh.inc'; fi
+
+eval "$(starship init zsh)"
