@@ -1,14 +1,13 @@
 return {
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "Mofiqul/dracula.nvim",
+    name = "dracula",
     priority = 1000,
     config = function()
-      require("catppuccin").setup({
-        flavour = "auto",
-        transparent_background = true,
+      require("dracula").setup({
+        transparent_bg = true,
       })
-      vim.cmd.colorscheme("catppuccin-macchiato")
+      vim.cmd.colorscheme("dracula")
 
       -- transparent background
       vim.api.nvim_set_hl(0, "Normal", { bg = "none" })

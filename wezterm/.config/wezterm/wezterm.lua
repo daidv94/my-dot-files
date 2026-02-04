@@ -24,13 +24,13 @@ config.show_new_tab_button_in_tab_bar = false
 config.term = "xterm-256color"
 config.max_fps = 200
 
-config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
-config.font_size = 16
+config.font = wezterm.font("FiraCode Nerd Font Mono")
+config.font_size = 15
 config.window_frame = {
 	font_size = 14.0,
 }
-config.color_scheme = "Catppuccin Macchiato"
-config.window_background_opacity = 1
+config.color_scheme = "Dracula"
+config.window_background_opacity = 0.7
 -- config.window_decorations = "RESIZE"
 config.default_workspace = "main"
 

@@ -4,7 +4,7 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = "catppuccin",
+        theme = "dracula-nvim",
       },
       sections = {
         lualine_c = {
