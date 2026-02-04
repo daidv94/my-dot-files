@@ -27,6 +27,13 @@ return {
             lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
           }
         end,
+        formatters = {
+          terragrunt_hclfmt = {
+            command = "terragrunt",
+            args = { "hcl", "fmt", "--file", "$FILENAME" },
+            stdin = false, -- hclfmt works on files, not stdin
+          },
+        },
         formatters_by_ft = {
           lua = { "stylua" },
           python = { "isort", "black" },
