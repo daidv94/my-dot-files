@@ -19,10 +19,12 @@ end)
 -- Tab configuration
 config.use_fancy_tab_bar = false
 config.show_new_tab_button_in_tab_bar = false
--- config.show_tab_index_in_tab_bar = false
+-- config.tab_bar_at_bottom = true
+config.show_tab_index_in_tab_bar = true
 
 config.term = "xterm-256color"
 config.max_fps = 200
+config.check_for_updates = true
 
 config.font = wezterm.font("FiraCode Nerd Font Mono")
 config.font_size = 15
@@ -87,21 +89,21 @@ local direction_keys = {
 
 local function split_nav(key)
   return {
-    mods = "LEADER",
+    mods = "CTRL",
     key = key,
     action = wezterm.action.ActivatePaneDirection(direction_keys[key]),
   }
 end
 
 -- Keys
-config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 1000 }
+config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1500 }
 config.keys = {
   -- Double Ctrl-a to send Ctrl-a
   { key = "b", mods = "LEADER|CTRL", action = action.SendKey({ key = "a", mods = "CTRL" }) },
   -- Change the tab title name
   {
-    key = "E",
-    mods = "CTRL|SHIFT",
+    key = ",",
+    mods = "LEADER",
     action = action.PromptInputLine({
       description = "Enter new name for tab",
       action = wezterm.action_callback(function(window, pane, line)
@@ -114,7 +116,7 @@ config.keys = {
   -- Random background images
   {
     key = "b",
-    mods = "CTRL|SHIFT",
+    mods = "LEADER",
     action = wezterm.action_callback(function(window, pane)
       local new_background = random_background(bg_dir)
       if new_background then
@@ -142,25 +144,30 @@ config.keys = {
     key = "\\",
     action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
   },
+  {
+    mods = "LEADER",
+    key = "c",
+    action = wezterm.action { SpawnTab = "CurrentPaneDomain" },
+  },
   -- Adjust the panel size
   {
     key = "h",
-    mods = "CTRL|SHIFT",
+    mods = "LEADER",
     action = action.AdjustPaneSize({ "Left", 5 }),
   },
   {
     key = "l",
-    mods = "CTRL|SHIFT",
+    mods = "LEADER",
     action = action.AdjustPaneSize({ "Right", 5 }),
   },
   {
     key = "j",
-    mods = "CTRL|SHIFT",
+    mods = "LEADER",
     action = action.AdjustPaneSize({ "Down", 5 }),
   },
   {
     key = "k",
-    mods = "CTRL|SHIFT",
+    mods = "LEADER",
     action = action.AdjustPaneSize({ "Up", 5 }),
   },
   {
@@ -178,15 +185,35 @@ config.keys = {
     mods = "LEADER",
     action = action.ActivateTabRelative(1),
   },
-  { key = "x", mods = "LEADER",      action = action.CloseCurrentPane({ confirm = false }) },
+  {
+    key = "l",
+    mods = "LEADER",
+    action = action.ActivateLastTab,
+  },
+  {
+    key = "x",
+    mods = "LEADER",
+    action = action.CloseCurrentPane({ confirm = false })
+  },
+  {
+    key = "u",
+    mods = "LEADER",
+    action = wezterm.action_callback(function(win, pane)
+      local cmd = [[
+          sh -c "wezterm cli get-text | grep -oE '(https?):\/\/.*[^>]' | fzf"
+        ]]
+      pane:send_text(cmd)
+    end),
+  },
+
 }
 
--- for i = 1, 9 do
--- 	table.insert(config.keys, {
--- 		key = tostring(i),
--- 		mods = "LEADER",
--- 		action = action.ActivateTab(i - 1),
--- 	})
--- end
+for i = 1, 9 do
+  table.insert(config.keys, {
+    key = tostring(i),
+    mods = "LEADER",
+    action = action.ActivateTab(i - 1),
+  })
+end
 
 return config
