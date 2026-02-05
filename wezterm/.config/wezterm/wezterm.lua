@@ -87,14 +87,14 @@ local direction_keys = {
 
 local function split_nav(key)
   return {
-    mods = "LEADER",
+    mods = "CTRL",
     key = key,
     action = wezterm.action.ActivatePaneDirection(direction_keys[key]),
   }
 end
 
 -- Keys
-config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 1000 }
+config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1500 }
 config.keys = {
   -- Double Ctrl-a to send Ctrl-a
   { key = "b", mods = "LEADER|CTRL", action = action.SendKey({ key = "a", mods = "CTRL" }) },
@@ -145,22 +145,22 @@ config.keys = {
   -- Adjust the panel size
   {
     key = "h",
-    mods = "CTRL|SHIFT",
+    mods = "LEADER",
     action = action.AdjustPaneSize({ "Left", 5 }),
   },
   {
     key = "l",
-    mods = "CTRL|SHIFT",
+    mods = "LEADER",
     action = action.AdjustPaneSize({ "Right", 5 }),
   },
   {
     key = "j",
-    mods = "CTRL|SHIFT",
+    mods = "LEADER",
     action = action.AdjustPaneSize({ "Down", 5 }),
   },
   {
     key = "k",
-    mods = "CTRL|SHIFT",
+    mods = "LEADER",
     action = action.AdjustPaneSize({ "Up", 5 }),
   },
   {
@@ -178,15 +178,35 @@ config.keys = {
     mods = "LEADER",
     action = action.ActivateTabRelative(1),
   },
-  { key = "x", mods = "LEADER",      action = action.CloseCurrentPane({ confirm = false }) },
+  {
+    key = "l",
+    mods = "LEADER",
+    action = action.ActivateLastTab,
+  },
+  {
+    key = "x",
+    mods = "LEADER",
+    action = action.CloseCurrentPane({ confirm = false })
+  },
+  {
+    key = "u",
+    mods = "CTRL",
+    action = wezterm.action_callback(function(win, pane)
+      local cmd = [[
+          sh -c "wezterm cli get-text | grep -oE '(https?):\/\/.*[^>]' | fzf --multi | xargs open"
+        ]]
+      pane:send_text(cmd .. "\n")
+    end),
+  },
+
 }
 
--- for i = 1, 9 do
--- 	table.insert(config.keys, {
--- 		key = tostring(i),
--- 		mods = "LEADER",
--- 		action = action.ActivateTab(i - 1),
--- 	})
--- end
+for i = 1, 9 do
+  table.insert(config.keys, {
+    key = tostring(i),
+    mods = "LEADER",
+    action = action.ActivateTab(i - 1),
+  })
+end
 
 return config
