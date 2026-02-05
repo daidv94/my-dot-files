@@ -19,10 +19,12 @@ end)
 -- Tab configuration
 config.use_fancy_tab_bar = false
 config.show_new_tab_button_in_tab_bar = false
--- config.show_tab_index_in_tab_bar = false
+-- config.tab_bar_at_bottom = true
+config.show_tab_index_in_tab_bar = true
 
 config.term = "xterm-256color"
 config.max_fps = 200
+config.check_for_updates = true
 
 config.font = wezterm.font("FiraCode Nerd Font Mono")
 config.font_size = 15
@@ -100,8 +102,8 @@ config.keys = {
   { key = "b", mods = "LEADER|CTRL", action = action.SendKey({ key = "a", mods = "CTRL" }) },
   -- Change the tab title name
   {
-    key = "E",
-    mods = "CTRL|SHIFT",
+    key = ",",
+    mods = "LEADER",
     action = action.PromptInputLine({
       description = "Enter new name for tab",
       action = wezterm.action_callback(function(window, pane, line)
@@ -114,7 +116,7 @@ config.keys = {
   -- Random background images
   {
     key = "b",
-    mods = "CTRL|SHIFT",
+    mods = "LEADER",
     action = wezterm.action_callback(function(window, pane)
       local new_background = random_background(bg_dir)
       if new_background then
@@ -141,6 +143,11 @@ config.keys = {
     mods = "LEADER",
     key = "\\",
     action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+  },
+  {
+    mods = "LEADER",
+    key = "c",
+    action = wezterm.action { SpawnTab = "CurrentPaneDomain" },
   },
   -- Adjust the panel size
   {
@@ -190,12 +197,12 @@ config.keys = {
   },
   {
     key = "u",
-    mods = "CTRL",
+    mods = "LEADER",
     action = wezterm.action_callback(function(win, pane)
       local cmd = [[
-          sh -c "wezterm cli get-text | grep -oE '(https?):\/\/.*[^>]' | fzf --multi | xargs open"
+          sh -c "wezterm cli get-text | grep -oE '(https?):\/\/.*[^>]' | fzf"
         ]]
-      pane:send_text(cmd .. "\n")
+      pane:send_text(cmd)
     end),
   },
 
