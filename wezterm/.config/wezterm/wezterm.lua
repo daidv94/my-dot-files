@@ -31,7 +31,7 @@ config.font_size = 15
 config.window_frame = {
   font_size = 14.0,
 }
-config.color_scheme = "Dracula"
+config.color_scheme = "rose-pine"
 config.window_background_opacity = 1
 -- config.window_decorations = "RESIZE"
 config.default_workspace = "main"
@@ -80,6 +80,12 @@ config.window_background_image_hsb = {
 }
 -- End image background settings
 
+-- if you are *NOT* lazy-loading smart-splits.nvim (recommended)
+local function is_vim(pane)
+  -- this is set by the plugin, and unset on ExitPre in Neovim
+  return pane:get_user_vars().IS_NVIM == 'true'
+end
+
 local direction_keys = {
   h = "Left",
   j = "Down",
@@ -89,9 +95,19 @@ local direction_keys = {
 
 local function split_nav(key)
   return {
-    mods = "CTRL",
     key = key,
-    action = wezterm.action.ActivatePaneDirection(direction_keys[key]),
+    mods = "CTRL",
+    action = wezterm.action_callback(function(win, pane)
+      if is_vim(pane) then
+        -- pass the keys through to vim, which will handle the navigation
+        win:perform_action({
+          SendKey = { key = key, mods = "CTRL" },
+        }, pane)
+      else
+        -- otherwise, navigate in wezterm
+        win:perform_action(wezterm.action.ActivatePaneDirection(direction_keys[key]), pane)
+      end
+    end),
   }
 end
 
