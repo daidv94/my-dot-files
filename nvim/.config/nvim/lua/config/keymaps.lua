@@ -6,11 +6,6 @@ vim.g.loaded_netrwPlugin = 1
 -- pressing "Q" in normal mode enters Ex mode, this line to disable it
 vim.keymap.set("n", "Q", "<nop>")
 
-vim.keymap.set("i", "<C-h>", "<Left>", { desc = "move left" })
-vim.keymap.set("i", "<C-l>", "<Right>", { desc = "move right" })
-vim.keymap.set("i", "<C-j>", "<Down>", { desc = "move down" })
-vim.keymap.set("i", "<C-k>", "<Up>", { desc = "move up" })
-
 -- Switch to last opened buffer
 vim.keymap.set("n", "<leader><leader>", "<C-^>", { noremap = true, silent = true })
 
@@ -44,10 +39,11 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>eh", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
 
-vim.keymap.set("n", "<C-h>", ":wincmd h<CR>")
-vim.keymap.set("n", "<C-j>", ":wincmd j<CR>")
-vim.keymap.set("n", "<C-k>", ":wincmd k<CR>")
-vim.keymap.set("n", "<C-l>", ":wincmd l<CR>")
+-- Navigation between vim splits and wezterm panes is handled by smart-splits.nvim
+-- vim.keymap.set("n", "<C-h>", ":wincmd h<CR>")
+-- vim.keymap.set("n", "<C-j>", ":wincmd j<CR>")
+-- vim.keymap.set("n", "<C-k>", ":wincmd k<CR>")
+-- vim.keymap.set("n", "<C-l>", ":wincmd l<CR>")
 
 vim.keymap.set("n", "<leader>o", ":normal o<CR>")
 vim.keymap.set("n", "<leader>O", ":normal O<CR>")
