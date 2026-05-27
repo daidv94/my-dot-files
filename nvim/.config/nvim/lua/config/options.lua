@@ -44,10 +44,11 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
+vim.opt.modeline = false
 
 -- vim.opt.colorcolumn = "150"
 
--- vim.opt.iskeyword:append({ "-" })
+vim.opt.iskeyword:append({ "-" })
 
 -- filetype ---
 vim.filetype.add({

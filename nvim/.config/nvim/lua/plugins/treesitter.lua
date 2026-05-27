@@ -23,7 +23,6 @@ return {
         "gotmpl",
         "yaml",
         "json",
-        "python",
         "helm",
         "hcl",
         "terraform",

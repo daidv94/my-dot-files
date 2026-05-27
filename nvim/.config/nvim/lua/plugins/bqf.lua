@@ -4,5 +4,6 @@ return {
   dependencies = {
     -- Optional: highly recommended for better syntax highlighting in previews
     "nvim-treesitter/nvim-treesitter",
+    'junegunn/fzf',
   },
 }
