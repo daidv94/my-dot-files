@@ -32,6 +32,12 @@ config.window_frame = {
   font_size = 14.0,
 }
 config.color_scheme = "rose-pine"
+config.colors = {
+  -- Fix selection highlight: use rose-pine's highlight_med as bg so selected
+  -- text is visually distinct from normal text
+  selection_fg = "#e0def4", -- rose-pine text
+  selection_bg = "#403d52", -- rose-pine highlight_med
+}
 config.window_background_opacity = 1
 -- config.window_decorations = "RESIZE"
 config.default_workspace = "main"
@@ -70,14 +76,15 @@ local function random_background(folder)
   return nil
 end
 
-config.window_background_image = init_bg
+-- config.window_background_image = init_bg
 
-config.window_background_image_hsb = {
-  -- Darken the background image by reducing it
-  brightness = 0.05,
-  hue = 1.0,
-  saturation = 0.8,
-}
+-- config.window_background_image_hsb = {
+--   -- Darken the background image by reducing it
+--   brightness = 0.05,
+--   hue = 1.0,
+--   saturation = 0.8,
+-- }
+
 -- End image background settings
 
 -- if you are *NOT* lazy-loading smart-splits.nvim (recommended)
