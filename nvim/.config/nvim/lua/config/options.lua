@@ -48,8 +48,6 @@ vim.opt.modeline = false
 
 -- vim.opt.colorcolumn = "150"
 
-vim.opt.iskeyword:append({ "-" })
-
 -- filetype ---
 vim.filetype.add({
   extension = {
