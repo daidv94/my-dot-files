@@ -76,3 +76,5 @@ vim.keymap.set("n", "<leader>cr", ':let @+ = expand("%:h")<CR>', { desc = "Copy 
 vim.keymap.set("x", "/", "<Esc>/\\%V") --search within visual selection
 
 vim.keymap.set("n", "<leader>ca", "<cmd>ClaudeCode<CR>", { desc = "Toggle Claude Code" })
+
+vim.keymap.set("i", "<C-j>", "<Esc>", { desc = "Exit insert mode" })
