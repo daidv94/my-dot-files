@@ -5,7 +5,10 @@ return {
   -- adf
   dependencies = { "sindrets/diffview.nvim" },
   config = function()
-    require("gitsigns").setup()
+    require("gitsigns").setup({
+      update_debounce = 300,
+      max_file_length = 10000,
+    })
     local gitsigns = require("gitsigns")
 
     -- Navigation
