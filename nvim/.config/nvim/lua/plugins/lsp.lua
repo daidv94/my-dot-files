@@ -14,6 +14,15 @@ return {
   config = function()
     local capabilities = require("blink.cmp").get_lsp_capabilities()
 
+    -- Override terraformls built-in config: the lsp/terraformls.lua bundled with
+    -- newer nvim-lspconfig calls vim.lsp.codelens.enable() which does not exist
+    -- in Neovim 0.11.x. Patch it out via vim.lsp.config before mason loads it.
+    vim.lsp.config("terraformls", {
+      on_attach = function(_, bufnr)
+        vim.lsp.codelens.refresh({ bufnr = bufnr })
+      end,
+    })
+
     require("mason").setup()
     require("mason-lspconfig").setup({
       ensure_installed = {
@@ -59,16 +68,16 @@ return {
                   shadow = true,
                 },
                 -- staticcheck = true,
-              codelenses = {
-                gc_details = false,
-                generate = true,
-                regenerate_cgo = false,
-                run_govulncheck = false,
-                test = true,
-                tidy = true,
-                upgrade_dependency = true,
-                vendor = false,
-              },
+                codelenses = {
+                  gc_details = false,
+                  generate = true,
+                  regenerate_cgo = false,
+                  run_govulncheck = false,
+                  test = true,
+                  tidy = true,
+                  upgrade_dependency = true,
+                  vendor = false,
+                },
               },
             },
           })
