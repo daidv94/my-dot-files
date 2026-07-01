@@ -11,10 +11,7 @@ Skills are markdown (plus optional scripts) that teach the agent a focused workf
 
 | Location | When to use |
 |----------|-------------|
-| **`~/dotfiles/agents/.agents/skills/<name>`** | Default global usecase:  versioned, agent-neutral source. |
-| `.opencode/skills/<name>/` | OpenCode-specific override only. Shared skills stay in `.agents/skills/<name>/`. |
-| `~/.claude/skills/<name>/` | Personal skill for Claude Code across all projects. |
-| `~/.config/opencode/skills/<name>/` | Personal skill for OpenCode across all projects. |
+| **`~/dotfiles/agents/.agents/skills/<name>`** | Default newly skill created. |
 
 **Do not** put custom skills in `~/.cursor/skills-cursor/`—that is reserved for Cursor’s built-in skills.
 

@@ -93,5 +93,4 @@ No preamble, no softening.
 ## Tone calibration
 
 Write for a senior engineer. Skip basics. Be direct about trade-offs and risks – if something has a footgun, say so. If the answer is simple, say it's simple.
-
 Don't pad with adjectives that carry no information: "comprehensive", "robust", "seamless", "powerful", "elegant".

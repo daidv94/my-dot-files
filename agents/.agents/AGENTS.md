@@ -10,7 +10,10 @@ These are the standard instructions for AI coding assistants working on this pro
 - When making techinical decisions, do not give much weight to development cost.
   Instead, prefer quality, simplicity, robustness, scalability, and long term maintainability.
 - When writing anything outside of code, use the writing style skill for guidance.
-- **Git Commits**: Use conventional format: <type>(<scope>): <subject> where type = feat|fix|docs|style|refactor|test|chore|perf. Subject: 50 chars max, imperative mood ("add" not "added"), no period. For small changes: one-line commit only. For complex changes: add body explaining what/why (72-char lines) and reference issues. Keep commits atomic (one logical change) and self-explanatory. Split into multiple commits if addressing different concerns.
+- **Git Commits**: Use conventional format: <type>(<scope>): <subject> where type = feat|fix|docs|style|refactor|test|chore|perf.
+  Subject: 50 chars max, imperative mood ("add" not "added"), no period. For small changes: one-line commit only.
+  For complex changes: add body explaining what/why (72-char lines) and reference issues. Keep commits atomic (one logical change) and self-explanatory.
+  Split into multiple commits if addressing different concerns.
 
 ## Core Identity & Approach
 
