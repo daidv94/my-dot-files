@@ -10,6 +10,9 @@ export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:/opt/homebrew/opt/mysql-client/bin"
 export PATH="$PATH:$HOME/qmk_toolchains/bin"
 
+# Added by Antigravity CLI installer
+export PATH="$PATH:$HOME/.local/bin"
+
 # Terminal editor command
 export EDITOR="nvim"
 
@@ -158,3 +161,4 @@ if [ -f '/Users/danny/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/danny/goo
 if [ -f '/Users/danny/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/danny/google-cloud-sdk/completion.zsh.inc'; fi
 
 eval "$(starship init zsh)"
+

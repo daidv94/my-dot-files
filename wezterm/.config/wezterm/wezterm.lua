@@ -38,8 +38,8 @@ config.colors = {
   selection_fg = "#e0def4", -- rose-pine text
   selection_bg = "#403d52", -- rose-pine highlight_med
 }
-config.window_background_opacity = 0.8
-config.macos_window_background_blur = 20
+config.window_background_opacity = 1
+-- config.macos_window_background_blur = 21
 -- config.window_decorations = "RESIZE"
 config.default_workspace = "main"
 
@@ -91,7 +91,7 @@ end
 -- if you are *NOT* lazy-loading smart-splits.nvim (recommended)
 local function is_vim(pane)
   -- this is set by the plugin, and unset on ExitPre in Neovim
-  return pane:get_user_vars().IS_NVIM == 'true'
+  return pane:get_user_vars().IS_NVIM == "true"
 end
 
 local direction_keys = {
@@ -161,7 +161,7 @@ config.keys = {
   {
     mods = "LEADER",
     key = "c",
-    action = wezterm.action { SpawnTab = "CurrentPaneDomain" },
+    action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }),
   },
   -- Adjust the panel size
   {
@@ -207,21 +207,20 @@ config.keys = {
   {
     key = "x",
     mods = "LEADER",
-    action = action.CloseCurrentPane({ confirm = false })
+    action = action.CloseCurrentPane({ confirm = false }),
   },
   -- Make Option-Left equivalent to Alt-b which many line editors interpret as backward-word
   {
     key = "LeftArrow",
     mods = "OPT",
-    action = wezterm.action { SendString = "\x1bb" }
+    action = wezterm.action({ SendString = "\x1bb" }),
   },
   -- Make Option-Right equivalent to Alt-f; forward-word
   {
     key = "RightArrow",
     mods = "OPT",
-    action = wezterm.action { SendString = "\x1bf" }
+    action = wezterm.action({ SendString = "\x1bf" }),
   },
-
 }
 
 for i = 1, 9 do
