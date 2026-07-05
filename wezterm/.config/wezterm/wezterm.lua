@@ -26,7 +26,8 @@ config.term = "xterm-256color"
 config.max_fps = 200
 config.check_for_updates = true
 
-config.font = wezterm.font("FiraCode Nerd Font Mono")
+-- config.font = wezterm.font("FiraCode Nerd Font Mono")
+config.font = wezterm.font("Lilex")
 config.font_size = 15
 config.window_frame = {
   font_size = 14.0,
