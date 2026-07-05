@@ -47,6 +47,12 @@ ln -s ~/dotfiles/agents/.agents/AGENTS.md ~/.claude/CLAUDE.md
 ln -s ~/dotfiles/agents/.agents/AGENTS.md ~/.config/opencode/AGENTS.md
 ```
 
+3. Google Antigravity
+
+```bash
+ln -s ~/dotfiles/agents/.agents/AGENTS.md ~/.gemini/config/GEMINI.md
+```
+
 3. Skills
 
 ```bash

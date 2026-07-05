@@ -38,8 +38,24 @@ config.colors = {
   -- text is visually distinct from normal text
   selection_fg = "#e0def4", -- rose-pine text
   selection_bg = "#403d52", -- rose-pine highlight_med
+
+  tab_bar = {
+    background = "#191724", -- rose-pine base
+    inactive_tab_hover = {
+      bg_color = "#403d52", -- rose-pine highlight_med
+      fg_color = "#e0def4", -- rose-pine text
+    },
+    new_tab = {
+      bg_color = "#26233a", -- rose-pine overlay
+      fg_color = "#908caa", -- rose-pine subtle
+    },
+    new_tab_hover = {
+      bg_color = "#403d52",
+      fg_color = "#e0def4",
+    },
+  },
 }
-config.window_background_opacity = 1
+config.window_background_opacity = 1 -- If image background is used, this will be ignored
 -- config.macos_window_background_blur = 21
 -- config.window_decorations = "RESIZE"
 config.default_workspace = "main"
@@ -78,14 +94,19 @@ local function random_background(folder)
   return nil
 end
 
--- config.window_background_image = init_bg
-
--- config.window_background_image_hsb = {
---   -- Darken the background image by reducing it
---   brightness = 0.05,
---   hue = 1.0,
---   saturation = 0.8,
--- }
+config.background = {
+  {
+    source = {
+      File = init_bg,
+    },
+    -- Darken the background image by reducing it
+    hsb = {
+      brightness = 0.05,
+      hue = 1,
+      saturation = 0.8,
+    },
+  },
+}
 
 -- End image background settings
 
@@ -136,7 +157,18 @@ config.keys = {
       local new_background = random_background(bg_dir)
       if new_background then
         window:set_config_overrides({
-          window_background_image = new_background,
+          background = {
+            {
+              source = {
+                File = new_background,
+              },
+              hsb = {
+                brightness = 0.05,
+                hue = 1.0,
+                saturation = 0.8,
+              },
+            },
+          },
         })
         wezterm.log_info("New bg:" .. new_background)
       else
@@ -231,5 +263,44 @@ for i = 1, 9 do
     action = action.ActivateTab(i - 1),
   })
 end
+
+wezterm.on("format-tab-title", function(tab, tabs, panes, config_obj, hover, max_width)
+  local title = tab.tab_title
+  if not title or #title == 0 then
+    title = tab.active_pane.title
+  end
+
+  local index = tab.tab_index + 1
+
+  -- Rosé Pine Colors
+  local bg_active = "#c4a7e7" -- Iris
+  local fg_active = "#191724" -- Base (dark text)
+  local bg_inactive = "#26233a" -- Overlay
+  local fg_inactive = "#908caa" -- Subtle
+  local bg_hover = "#403d52" -- Highlight Med
+  local fg_hover = "#e0def4" -- Text
+
+  if tab.is_active then
+    return {
+      { Background = { Color = bg_active } },
+      { Foreground = { Color = fg_active } },
+      { Attribute = { Intensity = "Bold" } },
+      { Attribute = { Italic = true } },
+      { Text = " " .. index .. ": " .. title .. " " },
+    }
+  elseif hover then
+    return {
+      { Background = { Color = bg_hover } },
+      { Foreground = { Color = fg_hover } },
+      { Text = " " .. index .. ": " .. title .. " " },
+    }
+  else
+    return {
+      { Background = { Color = bg_inactive } },
+      { Foreground = { Color = fg_inactive } },
+      { Text = " " .. index .. ": " .. title .. " " },
+    }
+  end
+end)
 
 return config
