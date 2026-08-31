@@ -29,9 +29,11 @@ config.check_for_updates = true
 -- config.font = wezterm.font("FiraCode Nerd Font Mono")
 config.font = wezterm.font("Lilex")
 config.font_size = 15
+
 config.window_frame = {
-  font_size = 14.0,
+  font_size = 15.0,
 }
+
 config.color_scheme = "rose-pine"
 config.colors = {
   -- Fix selection highlight: use rose-pine's highlight_med as bg so selected
@@ -55,7 +57,7 @@ config.colors = {
     },
   },
 }
-config.window_background_opacity = 1 -- If image background is used, this will be ignored
+config.window_background_opacity = 0.5 -- If image background is used, this will be ignored
 -- config.macos_window_background_blur = 21
 -- config.window_decorations = "RESIZE"
 config.default_workspace = "main"
@@ -94,61 +96,29 @@ local function random_background(folder)
   return nil
 end
 
-config.background = {
-  {
-    source = {
-      File = init_bg,
-    },
-    -- Darken the background image by reducing it
-    hsb = {
-      brightness = 0.05,
-      hue = 1,
-      saturation = 0.8,
-    },
-  },
-}
+-- config.background = {
+--   {
+--     source = {
+--       File = init_bg,
+--     },
+--     -- Darken the background image by reducing it
+--     hsb = {
+--       brightness = 0.05,
+--       hue = 1,
+--       saturation = 0.8,
+--     },
+--   },
+-- }
 
 -- End image background settings
 
--- if you are *NOT* lazy-loading smart-splits.nvim (recommended)
-local function is_vim(pane)
-  -- this is set by the plugin, and unset on ExitPre in Neovim
-  return pane:get_user_vars().IS_NVIM == "true"
-end
-
-local direction_keys = {
-  h = "Left",
-  j = "Down",
-  k = "Up",
-  l = "Right",
-}
-
-local function split_nav(key)
-  return {
-    key = key,
-    mods = "CMD",
-    action = wezterm.action.ActivatePaneDirection(direction_keys[key]),
-  }
-end
-
 -- Keys
-config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 1500 }
+--
+-- tmux is the only multiplexer. WezTerm deliberately binds no leader and no
+-- pane/tab management, so every CTRL key reaches tmux and nvim untouched.
+-- The removed layer is kept in multiplexer.lua.disabled if this ever changes.
+-- See "Keybinding layers" in the repo README.
 config.keys = {
-  -- Double Ctrl-a to send Ctrl-a
-  { key = "a", mods = "LEADER|CTRL", action = action.SendKey({ key = "a", mods = "CTRL" }) },
-  -- Change the tab title name
-  {
-    key = ",",
-    mods = "LEADER",
-    action = action.PromptInputLine({
-      description = "Enter new name for tab",
-      action = wezterm.action_callback(function(window, pane, line)
-        if line then
-          window:active_tab():set_title(line)
-        end
-      end),
-    }),
-  },
   -- Random background images
   {
     key = "b",
@@ -176,72 +146,6 @@ config.keys = {
       end
     end),
   },
-  split_nav("h"),
-  split_nav("j"),
-  split_nav("k"),
-  split_nav("l"),
-  -- splitting
-  {
-    mods = "LEADER",
-    key = "-",
-    action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
-  },
-  {
-    mods = "LEADER",
-    key = "\\",
-    action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
-  },
-  {
-    mods = "LEADER",
-    key = "c",
-    action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }),
-  },
-  -- Adjust the panel size
-  {
-    key = "h",
-    mods = "CTRL|SHIFT",
-    action = action.AdjustPaneSize({ "Left", 5 }),
-  },
-  {
-    key = "l",
-    mods = "CTRL|SHIFT",
-    action = action.AdjustPaneSize({ "Right", 5 }),
-  },
-  {
-    key = "j",
-    mods = "CTRL|SHIFT",
-    action = action.AdjustPaneSize({ "Down", 5 }),
-  },
-  {
-    key = "k",
-    mods = "CTRL|SHIFT",
-    action = action.AdjustPaneSize({ "Up", 5 }),
-  },
-  {
-    key = "m",
-    mods = "LEADER",
-    action = action.TogglePaneZoomState,
-  },
-  {
-    key = "p",
-    mods = "LEADER",
-    action = action.ActivateTabRelative(-1),
-  },
-  {
-    key = "n",
-    mods = "LEADER",
-    action = action.ActivateTabRelative(1),
-  },
-  {
-    key = "l",
-    mods = "LEADER",
-    action = action.ActivateLastTab,
-  },
-  {
-    key = "x",
-    mods = "LEADER",
-    action = action.CloseCurrentPane({ confirm = false }),
-  },
   -- Make Option-Left equivalent to Alt-b which many line editors interpret as backward-word
   {
     key = "LeftArrow",
@@ -256,14 +160,6 @@ config.keys = {
   },
 }
 
-for i = 1, 9 do
-  table.insert(config.keys, {
-    key = tostring(i),
-    mods = "LEADER",
-    action = action.ActivateTab(i - 1),
-  })
-end
-
 wezterm.on("format-tab-title", function(tab, tabs, panes, config_obj, hover, max_width)
   local title = tab.tab_title
   if not title or #title == 0 then
@@ -273,12 +169,12 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config_obj, hover, max
   local index = tab.tab_index + 1
 
   -- Rosé Pine Colors
-  local bg_active = "#c4a7e7" -- Iris
-  local fg_active = "#191724" -- Base (dark text)
+  local bg_active = "#c4a7e7"   -- Iris
+  local fg_active = "#191724"   -- Base (dark text)
   local bg_inactive = "#26233a" -- Overlay
   local fg_inactive = "#908caa" -- Subtle
-  local bg_hover = "#403d52" -- Highlight Med
-  local fg_hover = "#e0def4" -- Text
+  local bg_hover = "#403d52"    -- Highlight Med
+  local fg_hover = "#e0def4"    -- Text
 
   if tab.is_active then
     return {
