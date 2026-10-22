@@ -1,4 +1,4 @@
-export PATH=/usr/bin:/usr/local/bin:/bin:/sbin:$HOME/bin:/usr/local/go/bin:/opt/homebrew/bin:$HOME/neovim/bin:$PATH
+export PATH=/usr/local/bin:/usr/bin:/bin:/sbin:$HOME/bin:/usr/local/go/bin:/opt/homebrew/bin:$HOME/neovim/bin:$PATH
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:$HOME/.lmstudio/bin"
@@ -15,6 +15,9 @@ export PATH="$PATH:$HOME/.local/bin"
 
 # Terminal editor command
 export EDITOR="nvim"
+
+export AWS_DEFAULT_REGION=ap-northeast-1
+export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
 
 plugins=(
   git
@@ -111,7 +114,6 @@ alias c='code'
 alias s='stern'
 alias dc='docker-compose'
 alias b='bat'
-alias cat='bat'
 alias le="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 alias gc="gcloud"
 

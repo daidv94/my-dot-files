@@ -1,3 +1,4 @@
+
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -7,8 +8,17 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "markdown_preview": {
+    "font_family": "Lilex"
+  },
+  "ui_font_family": "Lilex",
+  "agent_servers": {
+    "antigravity-acp": {
+      "type": "registry"
+    }
+  },
   "tab_bar": {
-    "show": false
+    "show": true
   },
   "scrollbar": {
     "show": "never"
@@ -16,7 +26,7 @@
   "icon_theme": {
     "mode": "system",
     "light": "Zed (Default)",
-    "dark": "Zed (Default)",
+    "dark": "Material Icon Theme",
   },
   "proxy": "",
   "which_key": {
@@ -42,7 +52,7 @@
       "breadcrumbs": true
     },
     "font_size": 14.0,
-    "font_family": "JetBrainsMono Nerd Font",
+    "font_family": "Lilex",
     "cursor_shape": "bar",
   },
   "project_panel": {
@@ -63,13 +73,13 @@
   "minimap": {
     "show": "never",
   },
-  "cursor_shape": "bar",
-  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "cursor_shape": "block",
+  "buffer_font_family": "Lilex",
   "show_whitespaces": "all",
   "soft_wrap": "none",
   "tab_size": 2,
   "base_keymap": "VSCode",
-  "ui_font_size": 16,
+  "ui_font_size": 16.0,
   "buffer_font_size": 14.0,
   "theme": {
     "mode": "system",
