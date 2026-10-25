@@ -19,6 +19,13 @@
     },
   },
   {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "space ]": "editor::GoToHunk",
+      "space [": "editor::GoToPreviousHunk",
+    },
+  },
+  {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
       "space b": "editor::ToggleGitBlameInline",
@@ -29,12 +36,12 @@
       "space s f": "file_finder::Toggle",
       "space s p": "projects::OpenRecent",
       "space o": "tab_switcher::Toggle",
-      "space s w": "workspace::NewSearch",
+      "space s s": "workspace::NewSearch",
+      "shift-l": "pane::ActivateNextItem",
+      "shift-h": "pane::ActivatePreviousItem",
       "n": "search::SelectNextMatch",
-      "shift-n": "search::SelectPrevMatch",
+      "shift-n": "search::SelectPreviousMatch",
       "space t": "workspace::NewCenterTerminal",
-      "g b": "editor::ToggleComments",
-      "space c": "pane::CloseActiveItem",
     },
   },
   {
@@ -51,6 +58,39 @@
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-j": "workspace::ActivatePaneDown",
+    },
+  },
+  {
+    "context": "vim_operator == a || vim_operator == i || vim_operator == cs",
+    "bindings": {
+      // Traditional Vim behavior
+      "q": "vim::AnyQuotes",
+      "b": "vim::AnyBrackets",
+
+      // mini.ai plugin behavior
+      "Q": "vim::MiniQuotes",
+      "B": "vim::MiniBrackets",
+    },
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "space c p": "workspace::CopyPath",
+      "space c r": "workspace::CopyRelativePath",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "space c p": "workspace::CopyPath",
+      "space c r": "workspace::CopyRelativePath",
+      "a": "project_panel::NewFile",
+      "A": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete",
+      "x": "project_panel::Cut",
+      "c": "project_panel::Copy",
+      "p": "project_panel::Paste",
     },
   },
 ]

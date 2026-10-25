@@ -1,4 +1,3 @@
-
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -8,21 +7,23 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "cursor_blink": false,
   "markdown_preview": {
-    "font_family": "Lilex"
+    "font_family": "Lilex",
   },
   "ui_font_family": "Lilex",
   "agent_servers": {
     "antigravity-acp": {
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
   "tab_bar": {
-    "show": true
+    "show": true,
   },
   "scrollbar": {
-    "show": "never"
+    "show": "never",
   },
+  "scroll_beyond_last_line": "off",
   "icon_theme": {
     "mode": "system",
     "light": "Zed (Default)",
@@ -47,13 +48,20 @@
     "dock": "left",
   },
   "vim_mode": true,
+  "vim": {
+    "cursor_shape": {
+      "insert": "bar",
+      "normal": "block",
+      "visual": "block",
+    },
+  },
   "terminal": {
     "toolbar": {
-      "breadcrumbs": true
+      "breadcrumbs": true,
     },
     "font_size": 14.0,
     "font_family": "Lilex",
-    "cursor_shape": "bar",
+    "cursor_shape": "block",
   },
   "project_panel": {
     "dock": "left",
@@ -85,5 +93,16 @@
     "mode": "system",
     "light": "One Light",
     "dark": "Ayu Dark",
+  },
+  "format_on_save": "on",
+  // "languages": {
+  //   "Terraform": {
+  //     "format_on_save": "on",
+  //     "formatter": "language_server",
+  //   },
+  // },
+  "edit_predictions": {
+    "provider": "copilot",
+    "mode": "eager",
   },
 }
