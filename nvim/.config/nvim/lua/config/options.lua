@@ -46,6 +46,10 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 300
 vim.opt.modeline = false
 
+vim.opt.wrap = true
+vim.opt.linebreak = true -- Avoid breaking words in the middle
+vim.opt.showbreak = '↪ ' -- Optional visual cue for wrapped lines
+
 -- vim.opt.colorcolumn = "150"
 
 -- filetype ---
