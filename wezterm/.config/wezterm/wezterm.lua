@@ -22,9 +22,8 @@ config.show_new_tab_button_in_tab_bar = false
 -- config.tab_bar_at_bottom = true
 config.show_tab_index_in_tab_bar = true
 
-config.term = "xterm-256color"
 config.max_fps = 200
-config.check_for_updates = true
+config.check_for_updates = false
 
 -- config.font = wezterm.font("FiraCode Nerd Font Mono")
 config.font = wezterm.font("Lilex")
@@ -275,12 +274,12 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config_obj, hover, max
   local index = tab.tab_index + 1
 
   -- Rosé Pine Colors
-  local bg_active = "#c4a7e7"   -- Iris
-  local fg_active = "#191724"   -- Base (dark text)
+  local bg_active = "#c4a7e7" -- Iris
+  local fg_active = "#191724" -- Base (dark text)
   local bg_inactive = "#26233a" -- Overlay
   local fg_inactive = "#908caa" -- Subtle
-  local bg_hover = "#403d52"    -- Highlight Med
-  local fg_hover = "#e0def4"    -- Text
+  local bg_hover = "#403d52" -- Highlight Med
+  local fg_hover = "#e0def4" -- Text
 
   if tab.is_active then
     return {

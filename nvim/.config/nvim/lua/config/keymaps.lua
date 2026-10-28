@@ -37,8 +37,6 @@ vim.keymap.set(
 )
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-vim.keymap.set("n", "<leader>eh", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
-
 -- Navigation between vim splits and tmux panes is handled by vim-tmux-navigator
 -- (lua/plugins/tmuxnavigator.lua)
 -- vim.keymap.set("n", "<C-h>", ":wincmd h<CR>")

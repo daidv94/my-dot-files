@@ -55,6 +55,21 @@ ln -s ~/dotfiles/agents/.agents/AGENTS.md ~/.gemini/config/GEMINI.md
 
 3. Skills
 
+- Claude code
+
 ```bash
 ln -s ~/dotfiles/agents/.agents/skills ~/.claude/skills
+
+```
+
+- Antigravity cli
+
+```bash
+ln -s ~/dotfiles/agents/.agents/skills ~/.gemini/skills
+```
+
+- Antigravity app
+
+```bash
+ln -s ~/dotfiles/agents/.agents/skills ~/.gemini/config/skills
 ```
