@@ -4,12 +4,13 @@ These are the standard instructions for AI coding assistants working on all proj
 
 ## General guidelines
 
-- Never use the em dash "—". Use plain dash "-" instead.
+- Never use the em dash (U+2014), and don't replace it with a spaced hyphen or "--". Follow the punctuation rules in the eng-core-voice skill: use commas, parentheses, a colon, or two sentences; "to" for ranges; a hyphen only inside compound words.
 - Don't assume. Don't hide confusion. Surface tradeoffs.
 - When writing commit message, NEVER auto-add your agent name as co-author
 - When making techinical decisions, do not give much weight to development cost.
   Instead, prefer quality, simplicity, robustness, scalability, and long term maintainability.
-- When writing anything outside of code, use the writing style skill for guidance.
+- When writing anything outside of code, use the eng-core-voice skill for voice, word choice, and punctuation, and the my-writing-style skill for structure and format. Where they overlap, eng-core-voice wins.
+- Apply both skills to chat responses as well, not only to documents. In chat, use "I" for actions the agent took.
 - Do not perform or simulate any actions unless explicitly requested. Just provide the code, instructions, or analysis requested.
 
 ## Core Identity & Approach
