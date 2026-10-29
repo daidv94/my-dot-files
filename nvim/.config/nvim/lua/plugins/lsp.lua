@@ -18,6 +18,14 @@ return {
     -- newer nvim-lspconfig calls vim.lsp.codelens.enable() which does not exist
     -- in Neovim 0.11.x. Patch it out via vim.lsp.config before mason loads it.
     vim.lsp.config("terraformls", {
+      -- terraform-ls panics on non-file URIs such as diffview://, so only attach to real files.
+      root_dir = function(bufnr, on_dir)
+        local name = vim.api.nvim_buf_get_name(bufnr)
+        if name:match("^%a[%w+.-]*://") then
+          return
+        end
+        on_dir(vim.fs.root(bufnr, { ".terraform", ".git" }) or vim.fs.dirname(name))
+      end,
       on_attach = function(_, bufnr)
         vim.lsp.codelens.refresh({ bufnr = bufnr })
       end,
