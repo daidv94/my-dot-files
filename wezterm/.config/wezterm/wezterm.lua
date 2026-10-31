@@ -21,6 +21,7 @@ config.use_fancy_tab_bar = false
 config.show_new_tab_button_in_tab_bar = false
 -- config.tab_bar_at_bottom = true
 config.show_tab_index_in_tab_bar = true
+config.hide_tab_bar_if_only_one_tab = true
 
 config.max_fps = 200
 config.check_for_updates = false
@@ -56,9 +57,10 @@ config.colors = {
     },
   },
 }
-config.window_background_opacity = 0.5 -- If image background is used, this will be ignored
--- config.macos_window_background_blur = 21
--- config.window_decorations = "RESIZE"
+config.window_background_opacity = 0.9 --image background is used, this will be ignored
+
+-- config.macos_window_background_blur = 6
+config.window_decorations = "RESIZE"
 config.default_workspace = "main"
 
 -- config.enable_tab_bar = false
