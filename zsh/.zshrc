@@ -116,6 +116,7 @@ alias dc='docker-compose'
 alias b='bat'
 alias le="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 alias gc="gcloud"
+alias k9s="TERM=xterm-256color k9s" # Identical rendering in tmux and normal emulator
 
 /usr/bin/ssh-add -A > /dev/null 2>&1
 
