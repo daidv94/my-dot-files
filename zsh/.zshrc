@@ -18,6 +18,7 @@ export EDITOR="nvim"
 
 export AWS_DEFAULT_REGION=ap-northeast-1
 export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
+export AWS_PAGER=""
 
 plugins=(
   git

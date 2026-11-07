@@ -60,7 +60,7 @@ config.colors = {
 config.window_background_opacity = 0.9 --image background is used, this will be ignored
 
 -- config.macos_window_background_blur = 6
-config.window_decorations = "RESIZE"
+-- config.window_decorations = "RESIZE"
 config.default_workspace = "main"
 
 -- config.enable_tab_bar = false

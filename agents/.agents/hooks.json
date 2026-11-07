@@ -1,0 +1,44 @@
+{
+  "workmux-status": {
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "/bin/sh ~/dotfiles/agents/.agents/agy-hook.sh clear '{}'"
+      }
+    ],
+    "PreInvocation": [
+      {
+        "type": "command",
+        "command": "/bin/sh ~/dotfiles/agents/.agents/agy-hook.sh working '{}'"
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "ask_question",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/bin/sh ~/dotfiles/agents/.agents/agy-hook.sh waiting '{\"decision\":\"allow\"}'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/bin/sh ~/dotfiles/agents/.agents/agy-hook.sh working '{}'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "type": "command",
+        "command": "/bin/sh ~/dotfiles/agents/.agents/agy-hook.sh done '{\"decision\":\"allow\"}'"
+      }
+    ]
+  }
+}

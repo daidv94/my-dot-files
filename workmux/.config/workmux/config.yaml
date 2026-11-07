@@ -1,0 +1,11 @@
+agent: claude
+nerdfont: true
+merge_strategy: rebase
+status_format: false
+
+panes:
+  - command: nvim
+    focus: false
+  - split: horizontal
+    command: agy
+    focus: true

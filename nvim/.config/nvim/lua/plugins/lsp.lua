@@ -14,6 +14,11 @@ return {
   config = function()
     local capabilities = require("blink.cmp").get_lsp_capabilities()
 
+    local function terraform_root(bufnr)
+      local name = vim.api.nvim_buf_get_name(bufnr)
+      return vim.fs.root(bufnr, { ".terraform", ".git" }) or vim.fs.dirname(name)
+    end
+
     -- Override terraformls built-in config: the lsp/terraformls.lua bundled with
     -- newer nvim-lspconfig calls vim.lsp.codelens.enable() which does not exist
     -- in Neovim 0.11.x. Patch it out via vim.lsp.config before mason loads it.
@@ -24,10 +29,41 @@ return {
         if name:match("^%a[%w+.-]*://") then
           return
         end
-        on_dir(vim.fs.root(bufnr, { ".terraform", ".git" }) or vim.fs.dirname(name))
+        on_dir(terraform_root(bufnr))
       end,
-      on_attach = function(_, bufnr)
+      -- One shared terraform-ls: every module root becomes a workspace folder of the same client.
+      reuse_client = function(client, config)
+        return client.name == config.name
+      end,
+      on_attach = function(client, bufnr)
         vim.lsp.codelens.refresh({ bufnr = bufnr })
+        -- Private Neovim API: the public vim.lsp.buf.add_workspace_folder only acts on the current buffer.
+        client:_add_workspace_folder(terraform_root(bufnr))
+      end,
+    })
+
+    -- Neovim keeps a client alive after its last buffer closes. Stop these heavy
+    -- servers so switching workspaces releases the previous project's memory.
+    -- The delay lets a session restore re-attach to the same client first, and the
+    -- forced stop is needed because terraform-ls ignores a graceful shutdown while indexing.
+    local stop_when_unused = { terraformls = true, tflint = true }
+    vim.api.nvim_create_autocmd("LspDetach", {
+      group = vim.api.nvim_create_augroup("StopUnusedLsp", { clear = true }),
+      callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if not client or not stop_when_unused[client.name] then
+          return
+        end
+        for bufnr in pairs(client.attached_buffers) do
+          if bufnr ~= args.buf then
+            return
+          end
+        end
+        vim.defer_fn(function()
+          if not client:is_stopped() and next(client.attached_buffers) == nil then
+            client:stop(true)
+          end
+        end, 1000)
       end,
     })
 

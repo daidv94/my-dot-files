@@ -8,10 +8,11 @@ My `dotfiles` are managed by this repository with the wonderful help of [stow](h
 - [zshrc](./zsh/)
 - [wezterm](./wezterm/)
 - [tmux](./tmux/)
+- [workmux](./workmux/)
 - [yazi](./yazi/)
 - [neovim](./nvim/)
 - [agents](./agents/)
-
+- [docs](./docs/)
 ## Dependencies
 
 - Need to use terminal emulator like `wezterm` or `iterm2`... to display theme correctly and even the image background
@@ -28,7 +29,7 @@ My `dotfiles` are managed by this repository with the wonderful help of [stow](h
 Run the following command to install all the dotfiles in your home directory:
 
 ```bash
-stow -v -t ~ zsh wezterm tmux yazi nvim agents
+stow -v -t ~ zsh wezterm tmux workmux yazi nvim agents
 ```
 
 ### Global agents memory files & skill
@@ -51,6 +52,7 @@ ln -s ~/dotfiles/agents/.agents/AGENTS.md ~/.config/opencode/AGENTS.md
 
 ```bash
 ln -s ~/dotfiles/agents/.agents/AGENTS.md ~/.gemini/config/GEMINI.md
+ln -s ~/dotfiles/agents/.agents/hooks.json ~/.gemini/config/hooks.json
 ```
 
 3. Skills
